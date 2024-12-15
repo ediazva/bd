@@ -126,3 +126,11 @@ a {
  text-decoration: none !important;
  color: inherit; 
 }
+
+.thumbnail {
+  max-width: 100px;
+}
+
+.thumbnail-active {
+  border: 1px solid rgb(var(--bs-primary-rgb));
+}

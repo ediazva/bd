@@ -2,7 +2,7 @@ package org.bd.controlador;
 
 import java.io.IOException;
 
-import org.bd.ProductoBundle;
+import org.bd.ProductoPathBundle;
 import org.bd.modelo.Producto;
 
 import jakarta.servlet.ServletException;
@@ -18,7 +18,7 @@ public class HomeServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession s = req.getSession();
     if(s.getAttribute("productos") == null) {
-      ProductoBundle.MakeInstance(req.getServletContext());
+      ProductoPathBundle.MakeInstance(req.getServletContext());
       s.setAttribute("productos", Producto.GetProductos(null));
     }
 

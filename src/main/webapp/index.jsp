@@ -1,4 +1,4 @@
-<%@page pageEncoding="UTF-8" import="java.util.HashMap, java.util.List, org.bd.modelo.Producto, org.bd.ProductoBundle" %>
+<%@page pageEncoding="UTF-8" import="java.util.HashMap, java.util.List, org.bd.modelo.Producto, org.bd.ProductoPathBundle" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -81,10 +81,12 @@
           int j = 0;
           for(Producto p : entry.getValue()) {
             if(j++ > 3) break;
-            ProductoBundle bundle = ProductoBundle.GetInstance();
+            ProductoPathBundle bundle = ProductoPathBundle.GetInstance();
             String path = String.format("/images/productos/%s", bundle.map.get(p.codigo).getFirst());
           %>
-          <img class="img-fluid col-4" src="<%=path%>">
+          <a class="col-4" href="/producto?tipo=<%=p.tipo%>&codigo=<%=p.codigo%>">
+            <img class="img-fluid" src="<%=path%>">
+          </a>
           <%
           }
           %>

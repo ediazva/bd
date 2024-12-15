@@ -7,11 +7,11 @@ import java.util.Map;
 
 import jakarta.servlet.ServletContext;
 
-public class ProductoBundle {
+public class ProductoPathBundle {
   public final Map<Integer, List<String>> map;
-  private static ProductoBundle s_instance;
+  private static ProductoPathBundle s_instance;
 
-  private ProductoBundle(Map<Integer, List<String>> map) {
+  private ProductoPathBundle(Map<Integer, List<String>> map) {
     this.map = map;
   }
 
@@ -24,10 +24,10 @@ public class ProductoBundle {
       int id = Integer.parseInt(filename.substring(0, filename.indexOf('_')));
       map.computeIfAbsent(id, k -> new LinkedList<>()).add(filename);
     });
-    s_instance = new ProductoBundle(map);
+    s_instance = new ProductoPathBundle(map);
   }
 
-  public static ProductoBundle GetInstance() {
+  public static ProductoPathBundle GetInstance() {
     assert(s_instance != null);
 
     return s_instance;
