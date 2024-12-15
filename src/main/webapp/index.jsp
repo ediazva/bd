@@ -60,7 +60,7 @@
       </nav>
     </header>
     
-    <div>
+    <div class="container-fluid p-0 m-0">
       <img class="img-fluid" src="images/background.jpg">
       
       <!-- Categoria -->
