@@ -1,0 +1,30 @@
+<%@page pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="login.css" rel="stylesheet">
+    <title>Sistema</title>
+  </head>
+  <body>
+    <div id="form-container">
+      <form id="form" method="post" action="/">
+        <label>Usuario</label>
+        <input name="user" required>
+        <label>Contraseña</label>
+        <input name="pwd" type="password" minlength="3" required>
+        <label id="error-label"></label>
+        <button>Iniciar Sesion</button>
+    </form>
+  </div>
+  <script>
+    let error = document.getElementById("error-label");
+    if(window.location.search.includes("error")) {
+      error.hidden = false;
+      error.textContent = "Usuario y/o contraseña incorrecta";
+    } else {
+      error.hidden = true;
+      error.textContent = "";
+    }
+  </script>
+  </body>
+</html>
