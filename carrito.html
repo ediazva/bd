@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oechsle-UNSA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="styles/default.css" rel="stylesheet">  
+    <link href="styles/font.css" rel="stylesheet">  
+    <link href="styles/animation.css" rel="stylesheet">  
+  </head>
+  <body>
+    <header>
+      <nav class="navbar justify-content-center bg-primary">
+        <a href="/">
+          <img src="images/oe.svg">
+        </a>
+      </nav>
+    </header>
+
+    <div class="d-flex flex-column p-5 bg-gray">
+      <div class="fw-bold">
+        Carrito de Compras
+      </div>
+      <!-- <span class="mb-2"><sub class="text-light-gray">N producto(s)</sub></span> -->
+      <span class="mb-2"><sub class="text-light-gray">Sin productos</sub></span>
+      <!-- Con elementos -->
+      <div class="d-flex">
+        <div class="d-flex flex-column border rounded p-3 me-3 row-gap-2 bg-white align-self-start" style="width: 65%;">
+          <!-- ITEM -->
+          <div class="d-flex align-items-end">
+            <img src="images/oh.png" width="150px">
+            <div class="flex-fill ms-3 align-self-stretch">
+              <div class="d-flex small-size text-light-gray justify-content-between">
+                <span>marca</span>
+                <span>ID: codigo</span>
+              </div>
+              <p class="fw-bold">nombre</p>
+            </div>
+            <div class="flex-fill">
+              <div class="fw-bold d-flex justify-content-between">
+                <span>Precio</span>
+                <span>S/ 2,999.00</span>
+              </div>
+              <div class="fw-bold text-light-blue d-flex justify-content-between">
+                <img src="images/oh.png" height="20px">
+                <div class="d-flex column-gap-3 align-items-bottom">
+                  <span>S/ 2,799.00 </span>
+                  <p class="px-1 badge text-bg-dark-red"><span class="icon-left-arrow"></span>-15%</p>
+                </div>
+              </div>
+              <div class="small-size text-end">
+                <a href="#" class="link-underline-secondary">
+                  <img src="images/icon-trash.png" height="12px">
+                  Eliminar</a>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="d-flex flex-column" style="width: 35%;">
+          <div class="bg-white d-flex flex-column border rounded p-0">
+            <div class="bg-gray-2 p-3 text-white d-flex column-gap-2">
+              <span class="x-large-size icon-cart"></span>
+              <b>Resumen de la compra</b>
+            </div>
+            <div class="d-flex fw-bold p-3 justify-content-between">
+              <div>Sub-total</div>
+              <div>S/ 2,899.00</div>
+            </div>
+            <hr class="m-0">
+            <div class="d-flex fw-bold p-3 justify-content-between">
+              <div>Total</div>
+              <div>S/ 2,799.00</div>
+            </div>
+          </div>
+          <button class="mt-5 p-3 btn btn-red fw-bold" disabled>Ir a comprar</button>
+        </div>   
+      </div>
+      <!-- Sin elementos -->
+      <div class="mx-auto col-3 d-flex flex-column justify-content-center visually-hidden">
+        <div class="d-flex flex-column align-items-center row-gap-3">
+          <span class="icon-cart super-large-size"></span>
+          <div class="fw-bold">¡Tu carrito de compras esta vacío!</div>
+        </div>
+        <div class="my-4 text-center">
+          <p>
+            Aún no has agregado productos a tu carrito de compras. Visita nuestra página principal
+            y descubre todo lo que tenemos para ti.
+          </p>
+        </div>
+        <button class="btn btn-red p-3 mx-5"><a href="/">Ver productos</a></button>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

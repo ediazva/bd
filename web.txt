@@ -1,0 +1,7 @@
+Una pagina web donde la página principal muestre los productos de hombre y mujer en una lista desplazable con limite para que luego se pueda ir a una página especial
+
+Poner 15% de descuento a los afiliados en todos los productos
+
+Sección - Iniciar Sesión
+Iniciar Sesión: Puede entrar cualquier tipo de persona
+Registrate: Esto solo registra a los usuarios
