@@ -8,16 +8,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="styles/default.css" rel="stylesheet">
   <link href="styles/font.css" rel="stylesheet">
+  <script type="text/javascript" src="scripts/gerente.js"></script>
+
 </head>
 
-<body class="default-theme">
+<body class="default-theme" onload="init();">
   <header>
     <nav class="navbar bg-primary">
       <div class="container column-gap-4">
         <img src="images/oe.svg">
         <form class="flex-grow-1">
           <div class="input-group">
-            <input class="form-control" placeholder="Â¿QuÃ© estÃ¡s buscando hoy?">
+            <input class="form-control" placeholder="¿Qué estás buscando hoy?">
             <button class="btn">
               <span class="input-group-text icon-search"></span>
             </button>
@@ -40,7 +42,7 @@
               <li>
                 <a class="dropdown-item">
                   <span class="x-large-size icon-user-circle"></span>
-                  <p class="my-auto">Iniciar SesiÃ³n</p>
+                  <p class="my-auto">Iniciar Sesión</p>
                 </a>
               </li>
             </ul>
@@ -101,9 +103,9 @@
             <div class="table-responsive-sm">
               <table class="table">
                 <thead>
-                  <th>Codigo del departamento</th>
+                  <th>Código del departamento</th>
                   <th>Nombre del departamento</th>
-                  <th>NÃºmero de empleados</th>
+                  <th>Número de empleados</th>
                 </thead>
                 <tbody id="departamentos-table-body">
               </table>
@@ -113,60 +115,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const datosBtn = document.getElementById('datos-btn');
-    const departamentosBtn = document.getElementById('departamentos-btn');
-    const datosSection = document.getElementById('datos-section');
-    const departamentosSection = document.getElementById('departamentos-section');
-    const datosTableBody = document.getElementById('datos-table-body');
-    const departamentosTableBody = document.getElementById('departamentos-table-body');
-
-    const fetchClientData = async () => {
-      // Esto debererÃ­a obtener datos de una base de datos, por ahora queda asÃ­
-      return {
-        datos: [
-          { label: 'DNI', value: '01234567' },
-          { label: 'Nombres', value: 'Esdras Amado' },
-          { label: 'Apellidos', value: 'Diaz Vasquez' },
-          { label: 'E-mail', value: 'ezdiava@unsa.edu.pe' },
-        ],
-        departamentos: [
-          { label: '01', value: 'Ventas</td><td>203' },
-          { label: '02', value: 'RR.HH. 1</td><td>500' },
-          { label: '03', value: 'RR.HH. 2</td><td>473' },
-        ],
-      };
-    };
-
-    const populateTable = (tableBody, data) => {
-      tableBody.innerHTML = '';
-      data.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.classList.add('table-danger');
-        tr.innerHTML = `<th scope="row">${row.label}</th><td>${row.value}</td>`;
-        tableBody.appendChild(tr);
-      });
-    };
-
-    const init = async () => {
-      const clientData = await fetchClientData();
-      populateTable(datosTableBody, clientData.datos);
-      populateTable(departamentosTableBody, clientData.departamentos);
-    };
-
-    datosBtn.addEventListener('click', () => {
-      datosSection.classList.remove('d-none');
-      departamentosSection.classList.add('d-none');
-    });
-
-    departamentosBtn.addEventListener('click', () => {
-      departamentosSection.classList.remove('d-none');
-      datosSection.classList.add('d-none');
-    });
-
-    init();
-  </script>
 
 </body>
 
