@@ -4,6 +4,7 @@ DELIMITER //
 
 DROP PROCEDURE IF EXISTS gestion_revision_reclamaciones//
 CREATE PROCEDURE gestion_revision_reclamaciones(
+    IN accion VARCHAR(20),
 	IN l_DNI_jefe CHAR(8),
     IN l_codigo_libro CHAR(10)
 )
