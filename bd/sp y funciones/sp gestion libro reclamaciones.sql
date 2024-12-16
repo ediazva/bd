@@ -3,7 +3,9 @@ USE oechsle;
 DELIMITER //
 
 DROP PROCEDURE IF EXISTS gestion_libro_reclamaciones//
-CREATE PROCEDURE gestion_libro_reclamaciones(IN l_codigo_libro CHAR(10))
+CREATE PROCEDURE gestion_libro_reclamaciones(
+    IN accion VARCHAR(10),
+    IN l_codigo_libro CHAR(10))
 BEGIN
     IF accion = 'AGREGAR' THEN
         INSERT INTO libro_reclamaciones (codigo_libro)
