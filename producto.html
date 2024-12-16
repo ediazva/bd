@@ -16,50 +16,54 @@
       </ol>
       
       <div class="d-flex column-gap-3">
-        <div class="col-1 border">
-          <div class="d-flex flex-column p-2 row-gap-2" style="max-height: 500px; overflow: auto;">
-            <button class="thumbnail thumbnail-active btn">
+        <div class="col-1">
+          <div class="d-flex flex-column p-2 row-gap-2 border" style="max-height: 500px; overflow: auto;">
+            <button class="thumbnail thumbnail-active">
               <img class="img-fluid" src="images/productos/10_0.jpg">
             </button>
-            <button class="thumbnail btn">
-              <img class="img-fluid" src="images/productos/10_0.jpg">
+            <button class="thumbnail">
+              <img class="img-fluid" src="images/productos/11_1.PNG">
             </button>
-            <button class="thumbnail btn">
-              <img class="img-fluid" src="images/productos/10_0.jpg">
+            <button class="thumbnail">
+              <img class="img-fluid" src="images/productos/11_2.PNG">
             </button>
           </div>
         </div>
         <div class="col-6 bg-white text-center">
-          <img class="img-fluid" style="max-height: 500px;" src="images/productos/10_0.jpg">
+          <img id="producto-preview" class="img-fluid border" style="max-height: 500px;" src="images/productos/10_0.jpg">
         </div>
-        <div class="col d-flex flex-column px-3">
-          <ol class="small-size breadcrumb" style="--bs-breadcrumb-divider: '|'">
-            <li class="breadcrumb-item">marca</li>
-            <li class="breadcrumb-item active">ID: codigo_producto</li>
-          </ol>
-          <p class="fs-5 fw-bold">nombre</p>
-          <!-- Cliente afiliado -->
-          <div class="d-flex column-gap-3 align-items-center text-light-blue">
-            <p class="fs-5 fw-bold">S/ 2,799.00</p>
-            <p class="px-1 badge text-bg-dark-red"><span class="icon-left-arrow"></span>-15%</p>
-            <p class="fw-bold">Tarjeta Oh <img src="images/oh.png" width="30px"></p>
+        <div class="col">
+          <div class="d-flex flex-column px-3 py-2 border bg-white rounded">
+            <ol class="small-size breadcrumb" style="--bs-breadcrumb-divider: '|'">
+              <li class="breadcrumb-item">marca</li>
+              <li class="breadcrumb-item active">ID: codigo_producto</li>
+            </ol>
+            <p class="fs-5 fw-bold">nombre</p>
+            <!-- Cliente afiliado -->
+            <div class="d-flex column-gap-3 align-items-center text-light-blue">
+              <p class="fs-5 fw-bold">S/ 2,799.00</p>
+              <p class="px-1 badge text-bg-dark-red"><span class="icon-left-arrow"></span>-15%</p>
+              <p class="fw-bold">Tarjeta Oh <img src="images/oh.png" width="30px"></p>
+            </div>
+            <!-- Cliente no afiliado -->
+            <div class="d-flex column-gap-3 align-items-end">
+              <p class="fs-5 fw-bold">S/ 2,799.00</p>
+              <p class="fw-bold">Precio</p>
+            </div>
+            <button class="btn btn-red px-4 py-3">Agregar al carro</button>
           </div>
-          <!-- Cliente no afiliado -->
-          <div class="d-flex column-gap-3 align-items-end">
-            <p class="fs-5 fw-bold">S/ 2,799.00</p>
-            <p class="fw-bold">Precio</p>
-          </div>
-          <button class="btn btn-red px-4 py-3">Agregar al carro</button>
         </div>
       </div>
     </div>
     
     <script>
-      Array
-        .from(document.getElementsByClassName("thumbnail"))
+      let thumbnails = Array.from(document.getElementsByClassName("thumbnail"));
+       thumbnails
         .forEach(x => {
           x.addEventListener("click", (ev) => {
-            
+            thumbnails.forEach(x => x.classList.remove("thumbnail-active"));
+            x.classList.add("thumbnail-active");
+            document.getElementById("producto-preview").src = x.firstElementChild.src;
           })
         });
     </script>

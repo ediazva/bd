@@ -1,0 +1,30 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.custom-accordion-btn {
+    color: black;
+    background-color: red !important;
+    border: none;
+}
+
+.custom-accordion-btn::after {
+    color: red;
+}
+
+.custom-accordion-btn:not(.collapsed)::after {
+    color: red;
+}
+
+.accordion-body a {
+    color: #6c757d;
+}
+
+.text-primary {
+    color: #00a6ff !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

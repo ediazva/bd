@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.bd.ProductoPathBundle;
+
+import jakarta.servlet.http.HttpSession;
+
 public class Producto {
   public final int codigo;
   public final String nombre;
@@ -30,8 +34,16 @@ public class Producto {
     this.tipo = tipo;
   }
 
+  public static HashMap<String, List<Producto>> GetProductosFromSession(HttpSession s) {
+    if(s.getAttribute("productos") == null) {
+      ProductoPathBundle.MakeInstance(s.getServletContext());
+      s.setAttribute("productos", Producto.MakeProductos(null));
+    }
 
-  public static HashMap<String, List<Producto>> GetProductos(String codigoOrNull) {
+    return (HashMap<String, List<Producto>>)s.getAttribute("productos");
+  } 
+
+  public static HashMap<String, List<Producto>> MakeProductos(String codigoOrNull) {
     final DBConection conn = DBConection.GetOrTryCreateInstance();
     try {
         String sql = "CALL mostrar_producto(?);";

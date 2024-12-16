@@ -1,6 +1,8 @@
 body {
   font-family: Gelion,sans-serif;
   color: #444;
+  --bs-primary-text-emphasis: white;
+  --bs-primary-bg-subtle: rgb(255, 112, 112) !important;
   --bs-primary-rgb: 255, 07, 05;
 }
 
@@ -125,4 +127,18 @@ body {
 a {
  text-decoration: none !important;
  color: inherit; 
+}
+
+.thumbnail {
+  max-width: 100px;
+  text-align: center;
+  border: 0;
+}
+
+.thumbnail-active {
+  border: 1px solid rgb(var(--bs-primary-rgb));
+}
+
+.shadow-sm {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
