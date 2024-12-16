@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="org.bd.ProductoPathBundle"%>
+<%@ page import="org.bd.modelo.Producto"%>
+<%@ page import="org.bd.modelo.DBConection"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.ResultSet"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +26,7 @@
         <img src="images/oe.svg">
         <form class="flex-grow-1">
           <div class="input-group">
-            <input class="form-control" placeholder="¿Qué estás buscando hoy?">
+            <input class="form-control" placeholder="Â¿QuÃ© estÃ¡s buscando hoy?">
             <button class="btn">
               <span class="input-group-text icon-search"></span>
             </button>
@@ -42,7 +49,7 @@
               <li>
                 <a class="dropdown-item">
                   <span class="x-large-size icon-user-circle"></span>
-                  <p class="my-auto">Iniciar Sesión</p>
+                  <p class="my-auto">Iniciar SesiÃ³n</p>
                 </a>
               </li>
             </ul>
@@ -85,32 +92,79 @@
             </li>
           </ul>
         </nav>
-
+        
+        <%
+        final DBConection conn = DBConection.GetOrTryCreateInstance();
+        String sql1 = "CALL mostrar_gerente(?);";
+        String dni = "33145678";
+        PreparedStatement stat1 = conn.connection().prepareStatement(sql1);
+        stat1.setString(1, dni);
+        ResultSet rs1 = stat1.executeQuery();
+        rs1.next();
+        %>
+        
+        
+        
         <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4 main-content">
           <h1 class="text-red fw-bold d-flex justify-content-center align-self-center column-gap-5">Detalles del gerente</h1>
 
-          <div id="datos-section" class="content-section">
-            <h2>Datos Personales</h2>
-            <div class="table-responsive-sm">
-              <table class="table">
-                <tbody id="datos-table-body">
-              </table>
+           <div id="datos-section" class="content-section">
+              <h2>Datos Personales</h2>
+              <div class="table-responsive-sm">
+                <table class="table">
+                  <tbody id="datos-table-body">
+                    <tr class="table-danger">
+                      <th scope="row">DNI</th>
+                      <td><%=dni%></td>
+                    </tr>
+                    <tr class="table-danger">
+                      <th scope="row">Nombres</th>
+                      <td><%=rs1.getString("primer_nombre")%></td>
+                    </tr>
+                    <tr class="table-danger">
+                      <th scope="row">Apellidos</th>
+                      <td><%=rs1.getString("primer_apellido")%>  <%=rs1.getString("segundo_apellido")%></td>
+                    </tr>
+                    <tr class="table-danger">
+                      <th scope="row">E-mail</th>
+                      <td><%=rs1.getString("email")%></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
 
-          <div id="departamentos-section" class="content-section d-none">
-            <h2>Departamentos que dirige</h2>
-            <div class="table-responsive-sm">
-              <table class="table">
-                <thead>
-                  <th>Código del departamento</th>
-                  <th>Nombre del departamento</th>
-                  <th>Número de empleados</th>
-                </thead>
-                <tbody id="departamentos-table-body">
-              </table>
+          
+            <%
+              String sql2 = "SELECT * FROM departamento WHERE DNI_gerente = ?";
+              PreparedStatement stat2 = conn.connection().prepareStatement(sql2);
+              stat2.setString(1, dni);
+              ResultSet rs2 = stat2.executeQuery();
+            %>
+            <div id="departamentos-section" class="content-section d-none">
+              <h2>Departamentos que dirige</h2>
+              <div class="table-responsive-sm">
+                <table class="table">
+                  <thead>
+                    <tr><th>CÃ³digo del departamento</th>
+                      <th>Nombre del departamento</th>
+                      <th>NÃºmero de empleados</th>
+                    </tr></thead>
+                  <tbody id="departamentos-table-body">
+                    <%
+                      while (rs2.next()) { %>
+                        <tr><th><%=rs2.getString("codigo")%></th>
+                          <td><%=rs2.getString("nombre_departamento")%></td>
+                          <td><%=rs2.getString("numero_empleados")%></td>
+                        </tr>
+                      <% }
+                    %>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+                    
+                    
         </main>
       </div>
     </div>

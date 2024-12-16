@@ -1,27 +1,6 @@
 const fetchClientData = async () => {
     // Esto deberería obtener datos de una base de datos, por ahora queda así
     return {
-        datos: [
-            {label: 'DNI', value: '01234567'},
-            {label: 'Nombres', value: 'Esdras Amado'},
-            {label: 'Apellidos', value: 'Diaz Vasquez'},
-            {label: 'E-mail', value: 'ezdiava@unsa.edu.pe'}
-        ],
-        jefe: [
-            {label: 'Teléfonos', value: '123456789, 123456789'},
-            {label: 'Dirección', value: 'Av. Ejemplar 123'},
-            {label: 'Salario', value: 'S./ 1200'},
-            {label: 'Inicio de contrato', value: '01/01/2000'},
-            {label: 'Fin de contrato', value: '01/01/2030'},
-            {label: 'Hora de inicio', value: '06:00'},
-            {label: 'Hora de salida', value: '14:00'},
-            {label: 'Tipo', value: 'Jefe'} // Jefe
-        ],
-        departamento: [
-            {label: '01', value: 'Ventas</td><td>203'},
-            {label: '02', value: 'RR.HH. 1</td><td>500'},
-            {label: '03', value: 'RR.HH. 2</td><td>478'}
-        ],
         libros: [
             {
                 id: 'libro1',
@@ -110,9 +89,6 @@ const init = async () => {
     });
 
     const clientData = await fetchClientData();
-    populateTable(datosTableBody, clientData.datos);
-    populateTable(jefeTableBody, clientData.jefe);
-    populateTable(departamentoTableBody, clientData.departamento);
     populateDropdown(libroSelect, clientData.libros);
 
     const selectedLibro = clientData.libros.find(libro => libro.id === libroSelect.value);
