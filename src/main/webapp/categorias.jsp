@@ -1,4 +1,4 @@
-<%@page pageEncoding="UTF-8" import="java.util.HashMap, java.util.List, org.bd.modelo.Producto, org.bd.ProductoPathBundle, java.util.stream.Collectors, java.util.function.Function, java.util.Collections"%>
+<%@page pageEncoding="UTF-8" import="java.util.HashMap, java.util.List, org.bd.modelo.Producto, org.bd.ProductoPathBundle, java.util.stream.Collectors, java.util.function.Function, java.util.Collections, org.bd.security.Security"%>
 <%
 HashMap<String, List<Producto>> ps = (HashMap<String, List<Producto>>)session.getAttribute("productos");
 String NAME = request.getParameter("name");
@@ -34,6 +34,8 @@ if ("asc".equals(SORT)) {
     <link href="styles/font.css" rel="stylesheet">  
 </head>
 <body>
+    <jsp:include page="header.jsp"/>
+
     <div class="container-fluid">
         <!-- Contenedor principal -->
         <div class="row mt-4">

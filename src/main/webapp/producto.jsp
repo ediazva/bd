@@ -1,4 +1,4 @@
-<%@page pageEncoding="UTF-8" import="org.bd.modelo.Producto, org.bd.FormatFloat, org.bd.ProductoPathBundle" %>
+<%@page pageEncoding="UTF-8" import="org.bd.modelo.Producto, org.bd.FormatFloat, org.bd.ProductoPathBundle, org.bd.security.Security" %>
 <%
 Producto producto = (Producto)session.getAttribute("producto");
 %>
@@ -12,6 +12,7 @@ Producto producto = (Producto)session.getAttribute("producto");
     <link href="styles/animation.css" rel="stylesheet">  
   </head>
   <body>
+    <jsp:include page="header.jsp"/>
     <div class="container-fluid text-gray bg-gray">
       <ol id="breadcrumb-nav" class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>

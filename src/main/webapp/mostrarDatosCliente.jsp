@@ -5,6 +5,21 @@
 <%@ page import="java.sql.PreparedStatement"%>
 <%@ page import="java.sql.ResultSet"%>
 
+<%
+final DBConection conn = DBConection.GetOrTryCreateInstance();
+String sql1 = "CALL mostrar_cliente(?);";
+String sql2 = "CALL mostrar_tarjetas_y_afiliacion(?);";
+String dni = "89012375";
+// String dni = "12345678";
+PreparedStatement stat1 = conn.connection().prepareStatement(sql1);
+PreparedStatement stat2 = conn.connection().prepareStatement(sql2);
+stat1.setString(1, dni);
+stat2.setString(1, dni);
+ResultSet rs1 = stat1.executeQuery();
+ResultSet rs2 = stat2.executeQuery();
+rs1.next();
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +55,7 @@
                     <!-- Usuario ya registrado -->
                     <span class="my-auto icon-down"></span>
                   </div>
-                  <sub class="xx-small-size "><b><%=rs1.getString("primer_nombre")%> <%=rs1.getString("primer_apellido")%> </b></sub>
+                  <sub class="xx-small-size "><b>RAMÓN ALONSO</b></sub>
                 </div>
               </button>
               <!-- Opciones del Usuario -->
@@ -92,19 +107,6 @@
             </ul>
           </nav>
 
-          <%
-          final DBConection conn = DBConection.GetOrTryCreateInstance();
-          String sql1 = "CALL mostrar_cliente(?);";
-          String sql2 = "CALL mostrar_tarjetas_y_afiliacion(?);";
-          String dni = (String)request.getAttribute("dni");
-          PreparedStatement stat1 = conn.connection().prepareStatement(sql1);
-          PreparedStatement stat2 = conn.connection().prepareStatement(sql2);
-          stat1.setString(1, dni);
-          stat2.setString(1, dni);
-          ResultSet rs1 = stat1.executeQuery();
-          ResultSet rs2 = stat2.executeQuery();
-          rs1.next();
-          %>
           <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4 main-content">
             <h1 class="text-red fw-bold d-flex justify-content-center align-self-center column-gap-5">Detalles del cliente</h1>
 

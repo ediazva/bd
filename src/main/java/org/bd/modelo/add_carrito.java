@@ -13,7 +13,7 @@ import org.bd.ProductoPathBundle;
 
 import jakarta.servlet.http.HttpSession;
 
-public class obtener_tipo_usuario {
+public class add_carrito {
   public enum TipoUsuario {
     GERENTE,
     EMPLEADO,
@@ -24,7 +24,7 @@ public class obtener_tipo_usuario {
 
   public static TipoUsuario obtenerTipoUsuario(String dni, String email) {
     final DBConection conn = DBConection.GetOrTryCreateInstance();
-    String sql = "SELECT obtener_tipo_usuario(?, ?)";
+    String sql = "CALL add_product(?, ?)";
     try {
       PreparedStatement stmt = conn.connection().prepareStatement(sql);
 

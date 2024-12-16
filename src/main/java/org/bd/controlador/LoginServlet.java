@@ -4,9 +4,11 @@ import java.io.IOException;
 
 import org.bd.modelo.obtener_tipo_usuario;
 import org.bd.modelo.obtener_tipo_usuario.TipoUsuario;
+import org.bd.security.Security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,11 +20,28 @@ public class LoginServlet extends HttpServlet {
     String email = req.getParameter("email");
     String pwd = req.getParameter("pwd");
 
+    if(Security.getCookieUsuario(req) != null) {
+      req.getRequestDispatcher("mostrarDatosCliente.jsp").forward(req, resp);
+      return;
+    }
+
     TipoUsuario user = obtener_tipo_usuario.obtenerTipoUsuario(pwd, email);
     switch(user) {
       case CLIENTE:
-        req.setAttribute("dni", pwd);
+        Cookie loginCookie = new Cookie("usuario", pwd);
+        loginCookie.setMaxAge(60);
+        resp.addCookie(loginCookie);
+
         req.getRequestDispatcher("mostrarDatosCliente.jsp").forward(req, resp);
+        break;
+      case EMPLEADO:
+        req.getRequestDispatcher("mostrarDatosEmpleado.jsp").forward(req, resp);
+        break;
+      case GERENTE:
+        req.getRequestDispatcher("mostrarDatoGerente.jsp").forward(req, resp);
+        break;  
+      case JEFE:
+        req.getRequestDispatcher("mostrarDatoJefe.jsp").forward(req, resp);
         break;
       case DESCONOCIDO:
         resp.sendRedirect("/");
