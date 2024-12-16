@@ -23,49 +23,6 @@
     <nav class="navbar bg-primary">
       <div class="container column-gap-4">
         <img src="images/oe.svg">
-        <form class="flex-grow-1">
-          <div class="input-group">
-            <input class="form-control" placeholder="¿Qué estás buscando hoy?">
-            <button class="btn">
-              <span class="input-group-text icon-search"></span>
-            </button>
-          </div>
-        </form>
-        <div class="d-flex column-gap-5">
-          <div class="dropdown">
-            <button class="btn p-0 text-white" type="button" data-bs-toggle="dropdown">
-              <div class="d-flex flex-column row-gap-2">
-                <div class="d-flex column-gap-2 justify-content-center">
-                  <span class="x-large-size icon-user-circle"></span>
-                  <!-- Usuario ya registrado -->
-                  <span class="my-auto icon-down"></span>
-                </div>
-                <sub class="xx-small-size "><b>ESDRAS DIAZ</b></sub>
-              </div>
-            </button>
-            <!-- Opciones del Usuario -->
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <a class="dropdown-item">
-                  <span class="x-large-size icon-user-circle"></span>
-                  <p class="my-auto">Iniciar Sesión</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- Solo para Clientes -->
-          <button class="btn p-0 text-white position-relative">
-            <span class="position-absolute badge translate-middle-y rounded-pill bg-white text-red">
-              0
-            </span>
-            <div class="d-flex flex-column row-gap-2">
-              <div class="d-flex justify-content-center">
-                <span class="x-large-size icon-cart"></span>
-              </div>
-              <sub class="xx-small-size"><b>CARRITO</b></sub>
-            </div>
-          </button>
-        </div>
       </div>
     </nav>
   </header>
@@ -73,8 +30,7 @@
 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Cuenta</li>
+        <li class="breadcrumb-item"><a href="/">Salir</a></li>
       </ol>
     </nav>
 

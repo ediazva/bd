@@ -47,7 +47,7 @@ Producto producto = (Producto)session.getAttribute("producto");
             <p class="fs-5 fw-bold"><%=producto.nombre%></p>
             <!-- Cliente afiliado -->
             <div class="d-flex column-gap-3 align-items-center text-light-blue">
-              <p class="fs-5 fw-bold">S/ 2,799.00</p>
+              <p class="fs-5 fw-bold"><%=String.format("S/ %s", FormatFloat.format(producto.precio * 0.15f))%></p>
               <p class="px-1 badge text-bg-dark-red"><span class="icon-left-arrow"></span>-15%</p>
               <p class="fw-bold">Tarjeta Oh <img src="images/oh.png" width="30px"></p>
             </div>

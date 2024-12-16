@@ -54,7 +54,7 @@
               <%
               if(Security.getCookieUsuario(request) != null) {
               %>
-              <sub class="xx-small-size"><b>RAMÓN ALONSO</b></sub>
+              <sub class="xx-small-size"><b>JOSE ALONSO</b></sub>
               <%
               } else {
               %>
@@ -109,7 +109,7 @@
               <input type="email" name="email" class="form-control" placeholder="Correo" required>
             </div>
             <div class="mb-3">
-              <input type="password" name="pwd" class="form-control" placeholder="Contraseña" required>
+              <input type="password" name="dni" class="form-control" placeholder="Contraseña" required>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-ingresar">Ingresar</button>

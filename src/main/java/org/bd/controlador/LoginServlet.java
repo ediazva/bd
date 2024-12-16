@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String email = req.getParameter("email");
-    String pwd = req.getParameter("pwd");
+    String pwd = req.getParameter("dni");
 
     if(Security.getCookieUsuario(req) != null) {
       req.getRequestDispatcher("mostrarDatosCliente.jsp").forward(req, resp);

@@ -55,7 +55,7 @@ rs1.next();
                     <!-- Usuario ya registrado -->
                     <span class="my-auto icon-down"></span>
                   </div>
-                  <sub class="xx-small-size "><b>RAMÓN ALONSO</b></sub>
+                  <sub class="xx-small-size "><b>JOSE ALONSO</b></sub>
                 </div>
               </button>
               <!-- Opciones del Usuario -->
