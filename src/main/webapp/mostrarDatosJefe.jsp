@@ -103,7 +103,7 @@
 
           <%
             final DBConection conn = DBConection.GetOrTryCreateInstance();
-            String dni = "66789012";
+            String dni = request.getParameter("dni");
 
           
             String telefonosSql = "CALL mostrar_telefonos(?);";

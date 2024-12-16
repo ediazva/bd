@@ -96,7 +96,8 @@
         <%
         final DBConection conn = DBConection.GetOrTryCreateInstance();
         String sql1 = "CALL mostrar_gerente(?);";
-        String dni = "33145678";
+        String dni = request.getParameter("dni");
+
         PreparedStatement stat1 = conn.connection().prepareStatement(sql1);
         stat1.setString(1, dni);
         ResultSet rs1 = stat1.executeQuery();

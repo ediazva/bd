@@ -96,7 +96,7 @@
           final DBConection conn = DBConection.GetOrTryCreateInstance();
           String sql1 = "CALL mostrar_cliente(?);";
           String sql2 = "CALL mostrar_tarjetas_y_afiliacion(?);";
-          String dni = "89012375";
+          String dni = request.getParameter("dni");
           // String dni = "12345678";
           PreparedStatement stat1 = conn.connection().prepareStatement(sql1);
           PreparedStatement stat2 = conn.connection().prepareStatement(sql2);

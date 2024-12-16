@@ -97,8 +97,7 @@
 
         <%
           final DBConection conn = DBConection.GetOrTryCreateInstance();
-          String dni = "10123456";
-
+          String dni = request.getParameter("dni");
           
           String telefonosSql = "CALL mostrar_telefonos(?);";
           PreparedStatement telefonosStatement = conn.connection().prepareStatement(telefonosSql);
