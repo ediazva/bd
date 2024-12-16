@@ -4,7 +4,7 @@ DELIMITER //
 
 DROP FUNCTION IF EXISTS obtener_tipo_usuario//
 
-CREATE FUNCTION obtener_tipo_usuario(p_dni CHAR(8), p_email VARCHAR(50)) RETURNS VARCHAR(20) DETERMINISTIC
+CREATE FUNCTION obtener_tipo_usuario(p_dni CHAR(9), p_email VARCHAR(50)) RETURNS VARCHAR(20) DETERMINISTIC
 BEGIN
     DECLARE tipo_usuario VARCHAR(20);
 

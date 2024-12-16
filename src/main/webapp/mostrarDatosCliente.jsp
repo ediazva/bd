@@ -40,7 +40,7 @@
                     <!-- Usuario ya registrado -->
                     <span class="my-auto icon-down"></span>
                   </div>
-                  <sub class="xx-small-size "><b>ESDRAS DIAZ</b></sub>
+                  <sub class="xx-small-size "><b><%=rs1.getString("primer_nombre")%> <%=rs1.getString("primer_apellido")%> </b></sub>
                 </div>
               </button>
               <!-- Opciones del Usuario -->
@@ -96,8 +96,7 @@
           final DBConection conn = DBConection.GetOrTryCreateInstance();
           String sql1 = "CALL mostrar_cliente(?);";
           String sql2 = "CALL mostrar_tarjetas_y_afiliacion(?);";
-          String dni = request.getParameter("dni");
-          // String dni = "12345678";
+          String dni = (String)request.getAttribute("dni");
           PreparedStatement stat1 = conn.connection().prepareStatement(sql1);
           PreparedStatement stat2 = conn.connection().prepareStatement(sql2);
           stat1.setString(1, dni);

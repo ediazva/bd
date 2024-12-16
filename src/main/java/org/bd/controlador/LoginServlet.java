@@ -21,7 +21,8 @@ public class LoginServlet extends HttpServlet {
     TipoUsuario user = obtener_tipo_usuario.obtenerTipoUsuario(pwd, email);
     switch(user) {
       case CLIENTE:
-        req.getRequestDispatcher("/mostrarDatosCliente.jsp").forward(req, resp);
+        req.setAttribute("dni", pwd);
+        req.getRequestDispatcher("mostrarDatosCliente.jsp").forward(req, resp);
         break;
       case DESCONOCIDO:
         resp.sendRedirect("/");
