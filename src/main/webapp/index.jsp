@@ -13,10 +13,10 @@
       <nav class="navbar bg-primary">
         <div class="container column-gap-4">
           <img src="images/oe.svg">
-          <form class="flex-grow-1">
+          <form class="flex-grow-1" method="get" action="/search">
             <div class="input-group">
-              <input class="form-control" placeholder="¿Qué estás buscando hoy?">
-              <button class="btn">
+              <input name="name" class="form-control" placeholder="¿Qué estás buscando hoy?" required>
+              <button type="submit" class="btn">
                 <span class="input-group-text icon-search"></span>
               </button>
             </div>
@@ -61,15 +61,16 @@
     </header>
     
     <div class="container-fluid p-0 m-0">
-      <img class="img-fluid" src="images/background.jpg">
+      <a href="/categorias?name=Accesorio">
+        <img class="img-fluid" src="images/background.jpg">
+      </a>
       
       <!-- Categoria -->
       <%
       HashMap<String, List<Producto>> ps = (HashMap<String, List<Producto>>)session.getAttribute("productos");
       int i = 0;
       for(HashMap.Entry<String, List<Producto>> entry : ps.entrySet()) {
-        i++;
-        if(i > 4) break;
+        if(i++ > 4) break;
       %>
       <div class="container text-center">
         <div class="d-flex py-3 justify-content-center align-items-center column-gap-2">
@@ -80,7 +81,7 @@
           <%
           int j = 0;
           for(Producto p : entry.getValue()) {
-            if(j++ > 3) break;
+            if(j++ > 2) break;
             ProductoPathBundle bundle = ProductoPathBundle.GetInstance();
             String path = String.format("/images/productos/%s", bundle.map.get(p.codigo).getFirst());
           %>
@@ -122,6 +123,7 @@
         </div>
       </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
